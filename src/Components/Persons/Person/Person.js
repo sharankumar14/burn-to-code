@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Radium from 'radium';
-import './Person.css';
+//import Radium from 'radium';
+import classes from './Person.css';
 import Aux from '../../../hoc/Auxiliary.js';
+import withClass from '../../../hoc/withClass.js';
 
 class Person extends Component {
   render(){
@@ -16,4 +17,4 @@ class Person extends Component {
   }
 }
 
-export default Radium(Person);
+export default withClass(Person, classes.Person);

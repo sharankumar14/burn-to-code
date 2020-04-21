@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import './App.css';
-import Radium,{ StyleRoot }  from 'radium';
+import Radium, {StyleRoot} from 'radium';
+import classes from './App.css';
 import Persons from '../Components/Persons/Persons.js';
 import Cockpit from '../Components/Cockpit/Cockpit.js';
+import withClass from '../hoc/withClass.js';
+import Aux from '../hoc/Auxiliary.js';
 
 
 class App extends Component {
@@ -33,9 +35,9 @@ componentDidUpdate(prevProps,prevState){
 
     state = {
         persons: [
-            { id:"key1", name: "sharan",age: 25},
-            { id:"key2", name: "Sam",age: 26 },
-            { id:"key3", name: "John",age: 30 }
+            { id:"key1", name: "sharan", age: 25},
+            { id:"key2", name: "Sam", age: 26 },
+            { id:"key3", name: "John", age: 30 }
         ],
         otherState: "something else",
         showPersons: false,
@@ -90,7 +92,7 @@ componentDidUpdate(prevProps,prevState){
 
       return (
         <StyleRoot>
-    			<div className ='App'>
+    			<Aux>
           <button onClick={() =>{
             this.setState({
                 showCockpit: false
@@ -103,10 +105,10 @@ componentDidUpdate(prevProps,prevState){
               toggled={this.toggleShowPersons}
             /> : null}
             {persons}
-    			</div >
-        </StyleRoot>
+    			</Aux>
+         </StyleRoot>
       );
     }
 }
 
-export default Radium(App);
+export default withClass(App, classes.App);

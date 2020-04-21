@@ -5,9 +5,9 @@ const Cockpit = (props) => {
 
   useEffect(() => {
     console.log('[cockpit.js] useEffect');
-    setTimeout(() =>{
-      alert('Saving data to cloud');
-    }, 1000);
+    // setTimeout(() =>{
+    //   alert('Saving data to cloud');
+    // }, 1000);
     return (() => {
         console.log('[cockpit.js] useEffect cleanup process');
     });
@@ -44,4 +44,4 @@ const Cockpit = (props) => {
   );
 };
 
-      export default React.memo(Cockpit);
+export default React.memo(Cockpit);
